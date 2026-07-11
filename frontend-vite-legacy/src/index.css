@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@import "@fontsource/big-shoulders/600.css";
+@import "@fontsource/big-shoulders/800.css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-sans/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+@theme {
+  /* ZYRO official brand colors (doc/plan.pdf) */
+  --color-zyro-bg: #050505;
+  --color-zyro-white: #ffffff;
+  --color-zyro-green: #b7ff4a;
+  --color-zyro-pink: #ff5c93;
+  --color-zyro-blue: #69b9ff;
+  --color-zyro-yellow: #f6e94a;
+
+  /* Extended neutrals (green-biased near-black, matches hero flavor) */
+  --color-zyro-surface: #0e0f0c;
+  --color-zyro-surface-2: #16180f;
+  --color-zyro-surface-3: #1e2116;
+  --color-zyro-ink: #f5f6f1;
+  --color-zyro-ink-dim: #9aa08f;
+  --color-zyro-ink-faint: #5c6153;
+  --color-zyro-border: #23261a;
+
+  --font-display: "Big Shoulders", "Arial Narrow", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --animate-marquee: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--color-zyro-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-zyro-green);
+  color: var(--color-zyro-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-zyro-green);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
